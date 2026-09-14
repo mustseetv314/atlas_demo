@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: atlas-config
+  namespace: atlas
+data:
+  APP_NAME: "Atlas"
+  APP_ENV: "production"
+  APP_HOST: "0.0.0.0"
+  APP_PORT: "8000"
+  DB_SERVER: "sqlserver.internal.company"
+  DB_PORT: "1433"
+  DB_NAME: "AtlasDb"
+  DB_DRIVER: "ODBC Driver 18 for SQL Server"
+  DB_TRUST_SERVER_CERTIFICATE: "yes"
