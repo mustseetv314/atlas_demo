@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<header class="hero"><p class="eyebrow">INTERNAL TECHNOLOGY ASSET MANAGEMENT</p><h1>Atlas</h1><p>IT Asset Inventory</p></header>
+<section class="cards"><article><span>Total Assets</span><strong>{{ counts.total }}</strong></article><article><span>Production Assets</span><strong>{{ counts.production }}</strong></article><article><span>Active Assets</span><strong>{{ counts.active }}</strong></article><article><span>Assets in Maintenance</span><strong>{{ counts.maintenance }}</strong></article></section>
+<section class="panel"><div class="panel-head"><div><p class="eyebrow">INVENTORY ACTIVITY</p><h2>Recent Assets</h2></div><a class="button" href="/assets">View All Assets</a></div>
+<div class="table-wrap"><table><thead><tr><th>Asset Tag</th><th>Name</th><th>Type</th><th>Environment</th><th>Status</th><th>Owner</th></tr></thead><tbody>{% for asset in assets %}<tr><td><b>{{ asset.asset_tag }}</b></td><td>{{ asset.name }}</td><td>{{ asset.asset_type }}</td><td>{{ asset.environment }}</td><td><span class="badge {{ asset.status|lower }}">{{ asset.status }}</span></td><td>{{ asset.owner }}</td></tr>{% else %}<tr><td colspan="6" class="empty">No assets found.</td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}
